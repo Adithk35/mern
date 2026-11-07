@@ -1,0 +1,29 @@
+.product_detail {
+    background-color: #a812ee;
+    display: flex;
+    padding-top:20px;
+
+    .prod_name {
+        color: #a812ee;   
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .details {
+        background-color: #a812ee;
+        width: 200px;
+        margin-right: 20px;
+        padding: 20px;
+        border-radius: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
