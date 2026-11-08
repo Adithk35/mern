@@ -95,7 +95,7 @@ const CreateToken = (req, res, next) => {
   const user = req.user;
   const email = user.email;
 
-  const token = jwt.sign({ email }, "json123");
+  const token = jwt.sign({ email }, process.env.JWT_SECRET,);
   console.log(token);
 
   req.token = token;
