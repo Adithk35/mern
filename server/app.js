@@ -25,7 +25,7 @@ app.use("/products", require("./routes/productsRoutes"));
 app.use("/cart", require("./routes/cartRoutes"));
 
 mongoose
-  .connect(process.env.MONGO_URL )
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("MongoDB connected successfully");
   })
@@ -33,7 +33,9 @@ mongoose
     console.log(err);
   });
 
+const PORT = process.env.PORT || 8000;
+
 // app deployed on port 8000
-app.listen(8000, () => {
+app.listen(PORT, () => {
   console.log("Server listen on port 8000");
 });
