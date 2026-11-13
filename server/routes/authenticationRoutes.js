@@ -3,13 +3,13 @@ const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 
 const {
-  hashPasswordMiddlewar,
+  hashPasswordMiddleware,
   passwordMiddleware,
   CreateToken,
  } = require("../middlewares/authmiddleware");
 
 const router = express.Router();
-router.post("/register", hashPasswordMiddlewar, (req, res) => {
+router.post("/register", hashPasswordMiddleware, (req, res) => {
   const { name, email, role } = req.body;
 
   const hashPassword = req.hashp;
