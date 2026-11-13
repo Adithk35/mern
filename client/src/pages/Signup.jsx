@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import apiUrl from "../apiUrl";
 
 const Signup = () => {
   const [role, setrole] = useState("");
@@ -18,7 +19,7 @@ const Signup = () => {
     });
 
     axios
-      .post("http://localhost:8000/auth/register", {
+      .post(apiUrl + "/auth/register", {
         name,
         email,
         password,

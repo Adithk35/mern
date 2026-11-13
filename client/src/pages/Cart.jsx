@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./Cart.css";
+import apiUrl from "../apiUrl";
 
 const Cart = () => {
   const [cart, setcart] = useState(null);
   const getcart = () => {
     axios
-      .get("http://localhost:8000/cart/getcart")
+      .get(apiUrl + "/cart/getcart")
       .then((res) => {
         setcart(res.data);
       })
@@ -22,7 +23,7 @@ const Cart = () => {
   console.log(cart);
   const handleDelete = (cart_id) => {
     axios
-      .post("http://localhost:8000/cart/deletecart", {
+      .post(apiUrl + "/cart/deletecart", {
         cart_id,
       })
       .then((res) => {
@@ -51,7 +52,7 @@ const Cart = () => {
           .map((item) => (
             <div className="cart-item" key={item._id}>
               <img
-                src={"http://localhost:8000/" + item.product_id.image}
+                src={apiUrl + "/" + item.product_id.image}
                 alt=""
               />
               <h1>{item.product_id.name}</h1>

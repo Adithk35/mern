@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import apiUrl from "../apiUrl";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ const Login = () => {
 
   const handleClick = () => {
     axios
-      .post("http://localhost:8000/auth/login", {
+      .post(apiUrl + "/auth/login", {
         email,
         password,
       })

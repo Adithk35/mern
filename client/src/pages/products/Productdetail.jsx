@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Productdetail.css";
 import axios from "axios";
+import apiUrl from "../../apiUrl";
 
 const Productdetail = () => {
   const { prod_id, prod_name, prod_imgloc, prod_imgname } = useParams();
@@ -12,7 +13,7 @@ const Productdetail = () => {
 
   const getProduct = () => {
     axios
-      .get("http://localhost:8000/products/getproduct/" + prod_id)
+      .get(apiUrl + "/products/getproduct/" + prod_id)
       .then((res) => {
         console.log(res.data);
         setproduct(res.data);
@@ -27,7 +28,7 @@ const Productdetail = () => {
     console.log(product._id);
 
     axios
-      .post("http://localhost:8000/cart/addtocart", {
+      .post(apiUrl + "/cart/addtocart", {
         user_id: user._id,
         product_id: product._id,
       })
@@ -46,10 +47,7 @@ const Productdetail = () => {
   return (
     <div className="product_detail">
       <div className="image">
-        <img
-          src={"http://localhost:8000/" + product?.image}
-          alt="product image"
-        />
+        <img src={apiUrl + "/" + product?.image} alt="product image" />
       </div>
       <div className="details">
         <div className="prod_name">{product?.name}</div>
